@@ -42,7 +42,6 @@ public class register extends HttpServlet {
             }*/
             req.setAttribute("AccountID", "Dear "+name+" your account ID is: "+DBMain.showID(name,password));
             System.out.println(DBMain.showID(name,password));
-            System.out.println("testing");
         }else{
             req.setAttribute("message", "Failed!!!");
         }
