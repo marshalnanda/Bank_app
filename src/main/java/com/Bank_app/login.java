@@ -18,20 +18,16 @@ public class login extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("ErrorMessage", "");
-        req.setAttribute("RegistrationMessage", "");
         String name=req.getParameter("uname");
         String password=req.getParameter("password");
         req.setAttribute("name",name);
+        RequestDispatcher rd;
         if(name.equals("marshal") && password.equals("123")){
-            RequestDispatcher rd=req.getRequestDispatcher("Home.jsp");
-            rd.forward(req,resp);
+            rd = req.getRequestDispatcher("Home.jsp");
         }else{
-            req.setAttribute("ErrorMessage", "Not a Valid User");
-            req.setAttribute("RegistrationMessage", "New user needs to register first");
-            RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
-            rd.forward(req,resp);
+            rd = req.getRequestDispatcher("index.html");
         }
+        rd.forward(req,resp);
 
     }
 

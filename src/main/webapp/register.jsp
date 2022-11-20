@@ -11,9 +11,8 @@
     Enter your phoneNumber : <input type="text" name="phoneNumber"><br>
     Enter your password : <input type="text" name="password"><br>
     <input type="submit" value="Register">
-    <a href="login.jsp">Back to Login page</a>
+    <a href="index.html">Back to Login page</a>
 </form>
-    <%= request.getAttribute("message") %><br>
-    <%= request.getAttribute("AccountID") %>
+
 </body>
 </html>
