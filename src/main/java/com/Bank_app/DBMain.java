@@ -37,4 +37,25 @@ public class DBMain {
         }
         return ID;
     }
+
+    public static boolean checkUserValidation(String name, String password) {
+        boolean flag=false;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select User_Name,Password from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+
+            while (rs.next()) {
+                String nameFromDB=rs.getString("User_Name");
+                String passwordFromDB=rs.getString("Password");
+                if(nameFromDB.contains(name) && passwordFromDB.contains(password)){
+                    flag=true;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
 }

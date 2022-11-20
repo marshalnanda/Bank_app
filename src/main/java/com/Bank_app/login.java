@@ -22,10 +22,12 @@ public class login extends HttpServlet {
         String password=req.getParameter("password");
         req.setAttribute("name",name);
         RequestDispatcher rd;
-        if(name.equals("marshal") && password.equals("123")){
+        System.out.println("User validate: "+DBMain.checkUserValidation(name,password));
+
+        if(DBMain.checkUserValidation(name,password)){
             rd = req.getRequestDispatcher("Home.jsp");
         }else{
-            rd = req.getRequestDispatcher("index.html");
+            rd = req.getRequestDispatcher("Error/notValidUser.jsp");
         }
         rd.forward(req,resp);
 

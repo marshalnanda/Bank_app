@@ -13,6 +13,7 @@
     <input type="submit" value="Register">
     <a href="index.html">Back to Login page</a>
 </form>
-
+    <%= request.getAttribute("message") %><br>
+    <%= request.getAttribute("AccountID") %>
 </body>
 </html>
