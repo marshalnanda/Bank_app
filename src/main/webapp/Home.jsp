@@ -11,21 +11,20 @@
 <p>Your balance is <%= request.getAttribute("balance") %></p>
 <br>
 <br>
-<form action="addMoney"  method="get">
-    <input type="submit" value="Add Money">
+<form action="login"  method="post">
+    <input type="submit" value="Add Money" name="formRequest">
 </form>
 <br>
-<form action="withdrawMoney"  method="get">
-    <input type="submit" value="Withdraw Money">
+<form action="login"  method="post">
+    <input type="submit" value="Withdraw Money" name="formRequest">
 </form>
 <br>
 <form action="logout"  method="get">
     <input type="submit" value="Logout">
 </form>
 <br>
-<form action="unRegister"  method="get">
-
-    <input type="submit" value="Delete Account">
+<form action="login"  method="post">
+    <input type="submit" value="Delete Account" name="formRequest">
 </form>
 </body>
 </html>

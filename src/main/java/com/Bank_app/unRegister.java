@@ -14,8 +14,7 @@ public class unRegister extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("unregister works");
-        //req.setAttribute("name",name);
+
         RequestDispatcher rd=req.getRequestDispatcher("unRegister.jsp");
         rd.forward(req,resp);
     }
