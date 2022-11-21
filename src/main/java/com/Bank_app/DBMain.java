@@ -19,7 +19,6 @@ public class DBMain {
     return status;
     }
 
-
     public static int showID(String name, String password) {
         int ID=-1;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
