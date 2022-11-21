@@ -5,9 +5,10 @@
     <title>Home</title>
 </head>
 <body>
-welcome to home page
-Hello <%= request.getAttribute("name") %>
-<br>
+<h2>Hello <%= request.getAttribute("name") %> welcome to XXXX Bank</h2>
+<p>Account ID: <%= request.getAttribute("accountID") %></p>
+<p>Phone Number: <%= request.getAttribute("phoneNumber") %></p>
+<p>Your balance is <%= request.getAttribute("balance") %></p>
 <br>
 <br>
 <form action="addMoney"  method="get">
@@ -20,6 +21,11 @@ Hello <%= request.getAttribute("name") %>
 <br>
 <form action="logout"  method="get">
     <input type="submit" value="Logout">
+</form>
+<br>
+<form action="unRegister"  method="get">
+
+    <input type="submit" value="Delete Account">
 </form>
 </body>
 </html>

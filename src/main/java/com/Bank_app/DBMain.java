@@ -37,6 +37,37 @@ public class DBMain {
         return ID;
     }
 
+    public static int showBalance(String name, String password) {
+        int balance=-1;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select `Balance(₹)` from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+
+            while (rs.next()) {
+                balance=rs.getInt("Balance(₹)");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return balance;
+    }
+
+    public static String showPhoneNumber(String name, String password) {
+        String pno = null;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select User_phoneNumber from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+            while (rs.next()) {
+                pno=rs.getString("User_phoneNumber");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return pno;
+    }
+
     public static boolean checkUserValidation(String name, String password) {
         boolean flag=false;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){

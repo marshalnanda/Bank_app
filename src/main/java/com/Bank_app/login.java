@@ -20,7 +20,12 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name=req.getParameter("uname");
         String password=req.getParameter("password");
+
         req.setAttribute("name",name);
+        req.setAttribute("accountID",DBMain.showID(name,password));
+        req.setAttribute("phoneNumber",DBMain.showPhoneNumber(name,password));
+        req.setAttribute("balance",DBMain.showBalance(name,password));
+
         RequestDispatcher rd;
         System.out.println("User validate: "+DBMain.checkUserValidation(name,password));
 
@@ -32,7 +37,6 @@ public class login extends HttpServlet {
         rd.forward(req,resp);
 
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
