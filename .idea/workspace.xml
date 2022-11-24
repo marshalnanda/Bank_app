@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/unRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/unRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addMoney.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addMoney.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/unRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/unRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/DBMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/DBMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/unRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/unRegister.class" afterDir="false" />
     </list>

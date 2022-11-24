@@ -23,7 +23,7 @@ public class DBMain {
         int ID=-1;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
             String query="Select Account_ID from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
-            System.out.println(query);
+            //System.out.println(query);
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
 
@@ -82,6 +82,22 @@ public class DBMain {
                     flag=true;
                 }
             }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
+    public static boolean deleteUser(int id) {
+        boolean flag=false;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="DELETE FROM accounts WHERE Account_ID=?";
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1,id);
+            pst.executeUpdate();
+            System.out.println("Students is deleted with ID = "+id);
+            flag=true;
         }catch (SQLException e){
             e.printStackTrace();
         }

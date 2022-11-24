@@ -16,11 +16,12 @@ public class login extends HttpServlet {
         System.out.println("Login works");
         super.init(config);
     }
-    String name;
+    static String name;
+    static String password;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         name=req.getParameter("uname");
-        String password=req.getParameter("password");
+        password=req.getParameter("password");
 
         req.setAttribute("name",name);
         req.setAttribute("accountID",DBMain.showID(name,password));
@@ -46,6 +47,9 @@ public class login extends HttpServlet {
         switch (formResponse) {
             case "Delete Account": {
                 req.setAttribute("name", name);
+                req.setAttribute("id", DBMain.showID(name, password));
+                req.setAttribute("message1", "");
+                req.setAttribute("message2", "");
                 RequestDispatcher rd = req.getRequestDispatcher("unRegister.jsp");
                 rd.forward(req, resp);
                 break;
@@ -57,6 +61,11 @@ public class login extends HttpServlet {
             }
             case "Add Money": {
                 RequestDispatcher rd = req.getRequestDispatcher("addMoney.jsp");
+                rd.forward(req, resp);
+                break;
+            }
+            case "Logout": {
+                RequestDispatcher rd = req.getRequestDispatcher("index.html");
                 rd.forward(req, resp);
                 break;
             }
