@@ -3,17 +3,30 @@
 <head>
     <link rel="stylesheet" href="index.css">
 </head>
-<h2>Welcome to Bank</h2>
-<p>Enter your credentials</p>
-<form action="login" method="get">
-    Enter your username : <input type="text" name="uname"><br>
-    Enter your password : <input type="text" name="password"><br>
-    <input type="submit" value="Login">
-</form>
 
-<p>New User?</p>
-<form action="register" method="get">
-    <input type="submit" value="Register Here">
-</form>
+
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <form action="login" method="get">
+            <h1>Welcome to Credit Union Bank</h1>
+            <br>
+            <p>Enter your credentials</p>
+            <input type="name" placeholder="User Name" name="uname"/>
+            <input type="password" placeholder="Password" name="password"/>
+            <button>Sign In</button>
+        </form>
+    </div>
+    <form action="register" method="get">
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>New User?</h1>
+                <p>Enter your details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
 </body>
 </html>

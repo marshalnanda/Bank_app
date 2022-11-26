@@ -1,3 +1,4 @@
+
 package com.Bank_app;
 
 
@@ -49,4 +50,5 @@ public class register extends HttpServlet {
         rd.forward(req,resp);
     }
 }
+
 

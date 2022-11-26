@@ -1,5 +1,5 @@
 package com.Bank_app;
-
+//assdfkhhhgkjdf
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -16,20 +16,61 @@ public class login extends HttpServlet {
         System.out.println("Login works");
         super.init(config);
     }
+    static String name;
+    static String password;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name=req.getParameter("uname");
-        String password=req.getParameter("password");
-        req.setAttribute("name",name);
-        if(name.equals("marshal") && password.equals("123")){
-            RequestDispatcher rd=req.getRequestDispatcher("Home.jsp");
-            rd.forward(req,resp);
-        }
-    }
+        name=req.getParameter("uname");
+        password=req.getParameter("password");
 
+        req.setAttribute("name",name);
+        req.setAttribute("accountID",DBMain.showID(name,password));
+        req.setAttribute("phoneNumber",DBMain.showPhoneNumber(name,password));
+        req.setAttribute("balance",DBMain.showBalance(name,password));
+
+        RequestDispatcher rd;
+        System.out.println("User validate: "+DBMain.checkUserValidation(name,password));
+
+        if(DBMain.checkUserValidation(name,password)){
+            rd = req.getRequestDispatcher("Home.jsp");
+        }else{
+            rd = req.getRequestDispatcher("Error/notValidUser.jsp");
+        }
+        rd.forward(req,resp);
+
+    }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String formResponse=req.getParameter("formRequest");
+        System.out.println(formResponse);
+
+        switch (formResponse) {
+            case "Delete Account": {
+                req.setAttribute("name", name);
+                req.setAttribute("id", DBMain.showID(name, password));
+                req.setAttribute("message1", "");
+                req.setAttribute("message2", "");
+                RequestDispatcher rd = req.getRequestDispatcher("unRegister.jsp");
+                rd.forward(req, resp);
+                break;
+            }
+            case "Withdraw Money": {
+                RequestDispatcher rd = req.getRequestDispatcher("withdrawMoney.jsp");
+                rd.forward(req, resp);
+                break;
+            }
+            case "Add Money": {
+                RequestDispatcher rd = req.getRequestDispatcher("addMoney.jsp");
+                rd.forward(req, resp);
+                break;
+            }
+            case "Logout": {
+                RequestDispatcher rd = req.getRequestDispatcher("index.html");
+                rd.forward(req, resp);
+                break;
+            }
+        }
+
     }
 
 

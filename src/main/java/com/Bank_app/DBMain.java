@@ -19,12 +19,11 @@ public class DBMain {
     return status;
     }
 
-
     public static int showID(String name, String password) {
         int ID=-1;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
             String query="Select Account_ID from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
-            System.out.println(query);
+            //System.out.println(query);
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
 
@@ -36,5 +35,73 @@ public class DBMain {
             e.printStackTrace();
         }
         return ID;
+    }
+
+    public static int showBalance(String name, String password) {
+        int balance=-1;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select `Balance(₹)` from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+
+            while (rs.next()) {
+                balance=rs.getInt("Balance(₹)");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return balance;
+    }
+
+    public static String showPhoneNumber(String name, String password) {
+        String pno = null;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select User_phoneNumber from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+            while (rs.next()) {
+                pno=rs.getString("User_phoneNumber");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return pno;
+    }
+
+    public static boolean checkUserValidation(String name, String password) {
+        boolean flag=false;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select User_Name,Password from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+
+            while (rs.next()) {
+                String nameFromDB=rs.getString("User_Name");
+                String passwordFromDB=rs.getString("Password");
+                if(nameFromDB.contains(name) && passwordFromDB.contains(password)){
+                    flag=true;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
+    public static boolean deleteUser(int id) {
+        boolean flag=false;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="DELETE FROM accounts WHERE Account_ID=?";
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1,id);
+            pst.executeUpdate();
+            System.out.println("Students is deleted with ID = "+id);
+            flag=true;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return flag;
     }
 }
