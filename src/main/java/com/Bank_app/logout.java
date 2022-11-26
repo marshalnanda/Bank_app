@@ -17,4 +17,6 @@ public class logout extends HttpServlet {
         rd.forward(req,resp);
     }
 
+    //test
+
 }
