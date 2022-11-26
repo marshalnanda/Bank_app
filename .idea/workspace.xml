@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="testing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="comment testing">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/DBUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/register.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668875819842</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="comment testing">
+      <created>1669449763633</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669449763633</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="comment testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment testing" />
   </component>
 </project>
