@@ -33,13 +33,9 @@ public class register extends HttpServlet {
         User user=new User(name,phoneNumber,password);
         boolean pass= DBMain.insertIntoDB(user);
         System.out.println(pass);
+
         if(pass) {
             req.setAttribute("message", "User Registered");
-            /* try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }*/
             req.setAttribute("AccountID", "Dear "+name+" your account ID is: "+DBMain.showID(name,password));
             System.out.println(DBMain.showID(name,password));
         }else{
