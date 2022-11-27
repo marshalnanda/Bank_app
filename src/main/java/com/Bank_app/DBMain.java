@@ -19,6 +19,22 @@ public class DBMain {
     return status;
     }
 
+    public static String showName(int id, String password) {
+        String nam = null;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select User_Name from accounts WHERE Account_ID="+"\""+id+"\""+" AND Password="+"\""+password+"\"";
+            //System.out.println(query);
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+
+            while (rs.next()) {
+                nam=rs.getString("User_Name");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return nam;
+    }
     public static int showID(String name, String password) {
         int ID=-1;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
@@ -37,10 +53,10 @@ public class DBMain {
         return ID;
     }
 
-    public static int showBalance(String name, String password) {
+    public static int showBalance(int id, String password) {
         int balance=-1;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
-            String query="Select `Balance(₹)` from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            String query="Select `Balance(₹)` from accounts WHERE Account_ID="+"\""+id+"\""+" AND Password="+"\""+password+"\"";
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
 
@@ -53,10 +69,10 @@ public class DBMain {
         return balance;
     }
 
-    public static String showPhoneNumber(String name, String password) {
+    public static String showPhoneNumber(int id, String password) {
         String pno = null;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
-            String query="Select User_phoneNumber from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            String query="Select User_phoneNumber from accounts WHERE Account_ID="+"\""+id+"\""+" AND Password="+"\""+password+"\"";
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
             while (rs.next()) {
@@ -68,17 +84,17 @@ public class DBMain {
         return pno;
     }
 
-    public static boolean checkUserValidation(String name, String password) {
+    public static boolean checkUserValidation(int id, String password) {
         boolean flag=false;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
-            String query="Select User_Name,Password from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
+            String query="Select Account_ID,Password from accounts WHERE Account_ID="+"\""+id+"\""+" AND Password="+"\""+password+"\"";
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
 
             while (rs.next()) {
-                String nameFromDB=rs.getString("User_Name");
+                int idFromDB=rs.getInt("Account_ID");
                 String passwordFromDB=rs.getString("Password");
-                if(nameFromDB.contains(name) && passwordFromDB.contains(password)){
+                if(idFromDB==id && passwordFromDB.contains(password)){
                     flag=true;
                 }
             }
@@ -103,5 +119,15 @@ public class DBMain {
         }
 
         return flag;
+    }
+
+    public static void updateBalance(int newBalance, int id) {
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")) {
+            String query = "UPDATE accounts SET `Balance(₹)`="+newBalance+" WHERE Account_ID="+id;
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

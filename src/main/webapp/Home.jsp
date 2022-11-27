@@ -5,7 +5,7 @@
     <title>Home</title>
 </head>
 <body>
-<h2>Hello <%= request.getAttribute("name") %> welcome to XXXX Bank</h2>
+<h2>Hello <%= request.getAttribute("name") %> welcome to Credit Union Bank</h2>
 <p>Account ID: <%= request.getAttribute("accountID") %></p>
 <p>Phone Number: <%= request.getAttribute("phoneNumber") %></p>
 <p>Your balance is <%= request.getAttribute("balance") %></p>

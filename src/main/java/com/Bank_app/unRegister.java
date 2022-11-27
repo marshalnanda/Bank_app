@@ -25,8 +25,7 @@ public class unRegister extends HttpServlet {
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("post works");
-
-        if(DBMain.showID(login.name, login.password)!=-1 && DBMain.deleteUser(DBMain.showID(login.name, login.password))){
+        if(DBMain.showID(DBMain.showName(login.id,login.password),login.password)!=-1 && DBMain.deleteUser(login.id)){
             System.out.println("User deleted");
             req.setAttribute("message1", "User deleted");
             req.setAttribute("message2", "Now you can close this window");

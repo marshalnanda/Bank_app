@@ -16,22 +16,22 @@ public class login extends HttpServlet {
         System.out.println("Login works");
         super.init(config);
     }
-    static String name;
+    static int id;
     static String password;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        name=req.getParameter("uname");
+        id= Integer.parseInt(req.getParameter("id"));
         password=req.getParameter("password");
 
-        req.setAttribute("name",name);
-        req.setAttribute("accountID",DBMain.showID(name,password));
-        req.setAttribute("phoneNumber",DBMain.showPhoneNumber(name,password));
-        req.setAttribute("balance",DBMain.showBalance(name,password));
+        req.setAttribute("accountID",id);
+        req.setAttribute("name",DBMain.showName(id,password));
+        req.setAttribute("phoneNumber",DBMain.showPhoneNumber(id,password));
+        req.setAttribute("balance",DBMain.showBalance(id,password));
 
         RequestDispatcher rd;
-        System.out.println("User validate: "+DBMain.checkUserValidation(name,password));
+        System.out.println("User validate: "+DBMain.checkUserValidation(id,password));
 
-        if(DBMain.checkUserValidation(name,password)){
+        if(DBMain.checkUserValidation(id,password)){
             rd = req.getRequestDispatcher("Home.jsp");
         }else{
             rd = req.getRequestDispatcher("Error/notValidUser.jsp");
@@ -46,8 +46,8 @@ public class login extends HttpServlet {
 
         switch (formResponse) {
             case "Delete Account": {
-                req.setAttribute("name", name);
-                req.setAttribute("id", DBMain.showID(name, password));
+                req.setAttribute("name", DBMain.showName(id,password));
+                req.setAttribute("id", id);
                 req.setAttribute("message1", "");
                 req.setAttribute("message2", "");
                 RequestDispatcher rd = req.getRequestDispatcher("unRegister.jsp");
@@ -55,11 +55,13 @@ public class login extends HttpServlet {
                 break;
             }
             case "Withdraw Money": {
+                req.setAttribute("message1", "");
                 RequestDispatcher rd = req.getRequestDispatcher("withdrawMoney.jsp");
                 rd.forward(req, resp);
                 break;
             }
             case "Add Money": {
+                req.setAttribute("message1", "");
                 RequestDispatcher rd = req.getRequestDispatcher("addMoney.jsp");
                 rd.forward(req, resp);
                 break;
