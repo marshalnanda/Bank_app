@@ -30,7 +30,9 @@ public class register extends HttpServlet {
         String name=req.getParameter("uname");
         String phoneNumber=req.getParameter("phoneNumber");
         String password=req.getParameter("password");
+
         User user=new User(name,phoneNumber,password);
+
         boolean pass= DBMain.insertIntoDB(user);
         System.out.println(pass);
 

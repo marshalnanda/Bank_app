@@ -1,18 +1,20 @@
 <html>
 <body>
 <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+</style>
 </head>
-
-
 <div class="container" id="container">
     <div class="form-container sign-in-container">
+
         <form action="login" method="get">
+            <div class="brand-logo"></div>
             <h1>Welcome to Credit Union Bank</h1>
             <br>
             <p>Enter your credentials</p>
-            <input type="text" placeholder="Account id" name="id"/>
-            <input type="password" placeholder="Password"  name="password"/>
+            <input type="text" placeholder="Account id" name="id" required/>
+            <input type="password" placeholder="Password"  name="password" required/>
             <button>Sign In</button>
         </form>
     </div>
@@ -21,7 +23,7 @@
         <div class="overlay">
             <div class="overlay-panel overlay-right">
                 <h1>New User?</h1>
-                <p>Enter your details and start journey with us</p>
+                <p1>Enter your details and start journey with us</p1>
                 <button class="ghost" id="signUp">Sign Up</button>
             </div>
         </div>

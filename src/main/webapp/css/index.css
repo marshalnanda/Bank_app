@@ -1,7 +1,16 @@
 * {
 	box-sizing: border-box;
 }
-
+.brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("Image/CU1.jpg");
+  background-size: 80px 50px;
+  background-position: center center;
+  background-repeat:no-repeat;
+  border-radius: 50%;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -19,6 +28,13 @@ h1 {
 }
 
 p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 10px 0 0px;
+}
+p1 {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -120,3 +136,4 @@ input {
 .overlay-right {
 	right: 0;
 }
+

@@ -25,6 +25,7 @@ public class DBMain {
             String query="Select User_Name from accounts WHERE Account_ID="+"\""+id+"\""+" AND Password="+"\""+password+"\"";
             //System.out.println(query);
             Statement stmt= conn.createStatement();
+
             ResultSet rs=stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -41,6 +42,7 @@ public class DBMain {
             String query="Select Account_ID from accounts WHERE User_Name="+"\""+name+"\""+" AND Password="+"\""+password+"\"";
             //System.out.println(query);
             Statement stmt= conn.createStatement();
+
             ResultSet rs=stmt.executeQuery(query);
 
             while (rs.next()) {
