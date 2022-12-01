@@ -7,7 +7,7 @@
 </head>
 <body>
 <h2>Welcome to Register page</h2>
-<form method="post">
+<form action="register" method="post">
     <span> Enter your Username : </span><input type="text" name="uname"><br>
     <span> Enter your Phone No : </span><input type="text" name="phoneNumber"><br>
     <span> Enter your Password : </span><input type="text" name="password"><br>

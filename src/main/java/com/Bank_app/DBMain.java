@@ -132,4 +132,53 @@ public class DBMain {
             e.printStackTrace();
         }
     }
+
+    public static void sendDeleteRequestToAdmin(int id, int reqID) {
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")) {
+            String query = "INSERT INTO admin VALUES (?,?,'Delete user')";
+            PreparedStatement pst= conn.prepareStatement(query);
+            pst.setInt(1,id);
+            pst.setInt(2,reqID);
+            pst.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean checkUserRequestInAdminDB(int id, String reqType) {
+        boolean status=false;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select Account_ID,Request_ID,Request_Type from admin";
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+            int accountIDFromAdminDB = -1;
+            //int reqIDFromAdminDB = -1;
+            String reqTypeFromAdminDB = "";
+            while (rs.next()) {
+                accountIDFromAdminDB=rs.getInt("Account_ID");
+                //reqIDFromAdminDB=rs.getInt("Request_ID");
+                reqTypeFromAdminDB=rs.getString("Request_Type");
+            }
+            if(accountIDFromAdminDB==id  && reqTypeFromAdminDB.equals(reqType)) status=true;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    public static int showReqID(int id, String reqType) {
+        int reqID=-1;
+        try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
+            String query="Select Request_ID from admin WHERE Account_ID="+id+" AND Request_Type="+"\""+reqType+"\"";
+            //System.out.println(query);
+            Statement stmt= conn.createStatement();
+            ResultSet rs=stmt.executeQuery(query);
+            while (rs.next()) {
+                reqID=rs.getInt("Request_ID");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return reqID;
+    }
 }
