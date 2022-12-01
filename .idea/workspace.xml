@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="adding css to register page">
+    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="Add/withdraw cash css">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/unRegister.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/withdrawMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/withdrawMoney.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Error/notValidUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Error/notValidUser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/DBUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/unRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/unRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/withdrawMoney.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/withdrawMoney.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/New Folder/Application/src/main/webapp/CSS&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/New Folder/Application/src/main/webapp/CSS",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\New Folder\Application\src\main\webapp\CSS" />
@@ -76,9 +80,6 @@
       <option name="adminPort" value="8006" />
       <option name="contextPath" value="/Bank_app" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
       <option name="port" value="8081" />
       <option name="tomcatInfo">
         <TomcatInfo>

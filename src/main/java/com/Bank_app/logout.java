@@ -16,7 +16,6 @@ public class logout extends HttpServlet {
         RequestDispatcher rd=req.getRequestDispatcher("index.html");
         rd.forward(req,resp);
     }
-
     //test
 
 }

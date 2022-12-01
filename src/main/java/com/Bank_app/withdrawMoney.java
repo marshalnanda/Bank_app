@@ -39,7 +39,7 @@ public class withdrawMoney extends HttpServlet {
                 req.setAttribute("message1", "Balance Updated");
             }else{
                 req.setAttribute("balance", DBMain.showBalance(login.id, login.password));
-                req.setAttribute("message1", " Failed Insufficient Balance !!!");
+                req.setAttribute("message1", "Failed Insufficient Balance !!!");
             }
 
         }else{

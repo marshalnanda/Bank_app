@@ -5,7 +5,6 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/notavaliduser.css">
 </head>
-
 <body>
 
 <h1>ERROR</h1>
