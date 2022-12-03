@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="changes in Home.css">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin.jsp" afterDir="false" />
+    <list default="true" id="25e9d977-ca8f-40be-b057-4786b9cbca19" name="Changes" comment="Delete button functionality changed">
+      <change afterPath="$PROJECT_DIR$/admin_DB.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/DBMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Bank_app/unRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Bank_app/unRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/DBMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/DBMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Bank_app/unRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Bank_app/unRegister.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669892971256</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Delete button functionality changed">
+      <created>1669923240479</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669923240480</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +188,7 @@
     <MESSAGE value="Deposit and withdraw cash done" />
     <MESSAGE value="css files for delete and home page" />
     <MESSAGE value="changes in Home.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in Home.css" />
+    <MESSAGE value="Delete button functionality changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete button functionality changed" />
   </component>
 </project>

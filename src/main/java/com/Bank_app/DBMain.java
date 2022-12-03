@@ -1,6 +1,8 @@
 package com.Bank_app;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.*;
 
 public class DBMain {
     public static boolean insertIntoDB(User user) {
@@ -110,11 +112,10 @@ public class DBMain {
     public static boolean deleteUser(int id) {
         boolean flag=false;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
-            String query="DELETE FROM accounts WHERE Account_ID=?";
+            String query="DELETE accounts , admin  FROM accounts  INNER JOIN admin WHERE accounts.Account_ID= admin.Account_ID and  accounts.Account_ID =?";
             PreparedStatement pst= conn.prepareStatement(query);
             pst.setInt(1,id);
             pst.executeUpdate();
-            System.out.println("Students is deleted with ID = "+id);
             flag=true;
         }catch (SQLException e){
             e.printStackTrace();
@@ -180,5 +181,21 @@ public class DBMain {
             e.printStackTrace();
         }
         return reqID;
+    }
+    public static Queue<String> showAllDataFromAdminDB() {
+        Queue<String> allData = new LinkedList<>();
+        try (Connection conn = DBUtils.getMysqlConnection("bank_database")) {
+            String query = "Select * from admin";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                allData.add("Account_ID: " + rs.getInt("Account_ID") +
+                            " | Request_ID: " + rs.getInt("Request_ID") +
+                            " | Request_Type: " + rs.getString("Request_Type"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allData;
     }
 }

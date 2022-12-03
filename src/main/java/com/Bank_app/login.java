@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 @WebServlet("/login")
 public class login extends HttpServlet {
@@ -28,10 +31,17 @@ public class login extends HttpServlet {
         req.setAttribute("phoneNumber",DBMain.showPhoneNumber(id,password));
         req.setAttribute("balance",DBMain.showBalance(id,password));
 
+
         RequestDispatcher rd;
         System.out.println("User validate: "+DBMain.checkUserValidation(id,password));
-
         if(id==8467 && password.equals("admin123")){
+            Queue<String> allData= DBMain.showAllDataFromAdminDB();
+            Iterator<String> itr = allData.iterator();
+            req.setAttribute("data",allData);
+            req.setAttribute("Message","");
+            while (itr.hasNext()){
+                System.out.println(itr.next());
+            }
             rd=req.getRequestDispatcher("admin.jsp");
         }
         else if(DBMain.checkUserValidation(id,password)){

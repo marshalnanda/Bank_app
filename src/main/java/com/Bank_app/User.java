@@ -18,14 +18,6 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -50,13 +42,6 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public int getUserBalance() {
-        return userBalance;
-    }
-
-    public void setUserBalance(int userBalance) {
-        this.userBalance = userBalance;
-    }
 
     @Override
     public String toString() {
