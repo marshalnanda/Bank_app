@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>This is Credit Union Bank Admin Page</h1>
-<br>
+
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% Queue<String> allData = (Queue<String>)request.getAttribute("data"); %>
@@ -31,6 +31,6 @@
     <input type="submit" value="Delete">
 </form>
 </div>
-<%= request.getAttribute("Message") %>
+<p><%= request.getAttribute("Message") %></p>
 </body>
 </html>
