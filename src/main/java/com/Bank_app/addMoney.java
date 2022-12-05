@@ -33,18 +33,20 @@ public class addMoney extends HttpServlet {
         String passwordFromAddMoneyPage=req.getParameter("passwordFromAddMoneyPage");
         int addMoney= Integer.parseInt(req.getParameter("addMoney"));
         RequestDispatcher rd ;
-        if(login.id==idFromAddMoneyPage) {
-            int balanceFromDB = DBMain.showBalance(idFromAddMoneyPage, passwordFromAddMoneyPage);
-            int newBalance = addMoney + balanceFromDB;
-            DBMain.updateBalance(newBalance, idFromAddMoneyPage);
-            req.setAttribute("balance",DBMain.showBalance(login.id,login.password));
-
-            req.setAttribute("message1", "Balance Updated");
-            rd = req.getRequestDispatcher("addMoney.jsp");
+        if(addMoney>0) {
+            if (login.id == idFromAddMoneyPage && login.password.equals(passwordFromAddMoneyPage)) {
+                int balanceFromDB = DBMain.showBalance(idFromAddMoneyPage, passwordFromAddMoneyPage);
+                int newBalance = addMoney + balanceFromDB;
+                DBMain.updateBalance(newBalance, idFromAddMoneyPage);
+                req.setAttribute("balance", DBMain.showBalance(login.id, login.password));
+                req.setAttribute("message1", "Balance Updated");
+            } else {
+                req.setAttribute("message1", "User Id mismatched");
+            }
         }else{
-            req.setAttribute("message1", "User Id mismatched");
-            rd = req.getRequestDispatcher("addMoney.jsp");
+            req.setAttribute("message1", "Amount must be greater then 0");
         }
+        rd = req.getRequestDispatcher("addMoney.jsp");
         rd.forward(req,resp);
     }
 }

@@ -146,21 +146,25 @@ public class DBMain {
         }
     }
 
-    public static boolean checkUserRequestInAdminDB(int id, String reqType) {
+    public static boolean checkUserRequestInAdminDB(int id, int reqID, String reqType) {
         boolean status=false;
         try(Connection conn=DBUtils.getMysqlConnection("bank_database")){
-            String query="Select Account_ID,Request_ID,Request_Type from admin";
+            String query="Select Account_ID,Request_Type FROM admin WHERE Request_ID = "+reqID;
             Statement stmt= conn.createStatement();
             ResultSet rs=stmt.executeQuery(query);
             int accountIDFromAdminDB = -1;
-            //int reqIDFromAdminDB = -1;
             String reqTypeFromAdminDB = "";
             while (rs.next()) {
                 accountIDFromAdminDB=rs.getInt("Account_ID");
-                //reqIDFromAdminDB=rs.getInt("Request_ID");
                 reqTypeFromAdminDB=rs.getString("Request_Type");
             }
-            if(accountIDFromAdminDB==id  && reqTypeFromAdminDB.equals(reqType)) status=true;
+            if(accountIDFromAdminDB==id  && reqTypeFromAdminDB.equals(reqType)){
+                status=true;
+            }
+            System.out.println(accountIDFromAdminDB+" "+id);
+            System.out.println(accountIDFromAdminDB==id);
+            System.out.println(reqTypeFromAdminDB.equals(reqType));
+            System.out.println(status);
         }catch (SQLException e){
             e.printStackTrace();
         }

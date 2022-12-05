@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Queue;
 
 @WebServlet("/login")
@@ -54,8 +53,6 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String formResponse=req.getParameter("formRequest");
-        System.out.println(formResponse);
-
         switch (formResponse) {
             case "Delete Account": {
                 req.setAttribute("name", DBMain.showName(id,password));
@@ -75,11 +72,6 @@ public class login extends HttpServlet {
             case "Add Money": {
                 req.setAttribute("message1", "");
                 RequestDispatcher rd = req.getRequestDispatcher("addMoney.jsp");
-                rd.forward(req, resp);
-                break;
-            }
-            case "Logout": {
-                RequestDispatcher rd = req.getRequestDispatcher("index.html");
                 rd.forward(req, resp);
                 break;
             }

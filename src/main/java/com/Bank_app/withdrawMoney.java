@@ -29,19 +29,21 @@ public class withdrawMoney extends HttpServlet {
         String passwordFromWithdrawMoneyPage=req.getParameter("passwordFromWithdrawMoneyPage");
         int withdrawMoney= Integer.parseInt(req.getParameter("withdrawMoney"));
         RequestDispatcher rd ;
-        if(login.id==idFromWithdrawMoneyPage) {
+        if(withdrawMoney>0){
+        if(login.id==idFromWithdrawMoneyPage && login.password.equals(passwordFromWithdrawMoneyPage)) {
             int balanceFromDB = DBMain.showBalance(idFromWithdrawMoneyPage, passwordFromWithdrawMoneyPage);
-
-            int newBalance = balanceFromDB-withdrawMoney;
-            if(newBalance>0) {
+            int newBalance = balanceFromDB - withdrawMoney;
+            if (newBalance > 0) {
                 DBMain.updateBalance(newBalance, idFromWithdrawMoneyPage);
                 req.setAttribute("balance", DBMain.showBalance(login.id, login.password));
                 req.setAttribute("message1", "Balance Updated");
-            }else{
+            } else {
                 req.setAttribute("balance", DBMain.showBalance(login.id, login.password));
                 req.setAttribute("message1", "Failed Insufficient Balance !!!");
             }
-
+        }else {
+            req.setAttribute("message1", "Amount must be greater then 0");
+        }
         }else{
             req.setAttribute("message1", "User Id mismatched");
         }
