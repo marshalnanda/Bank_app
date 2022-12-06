@@ -101,8 +101,10 @@ Description: Here are all the methods which is used to either update or taking o
 
 10.	logout.java
 
-Description: Here in doGet methods will simply redirect the page to index pag
-JSP ,HTML & their corresponding CSS files
+Description: Here in doGet methods will simply redirect the page to index page
+
+
+JSP ,HTML & their corresponding CSS files with code Explanation
 
 1.	index.html /.css
  
